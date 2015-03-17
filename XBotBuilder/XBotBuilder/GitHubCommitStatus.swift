@@ -19,11 +19,11 @@ enum GitHubCommitStatus : String {
 
         var status = GitHubCommitStatus.Error
         switch xBotStatusText {
-        case "test-failures", "warnings", "analyzer-warnings":
+        case "test-failures":
             status = .Failure
         case "build-errors":
             status = .Error
-        case "succeeded":
+        case "succeeded", "warnings", "analyzer-warnings":
             status = .Success
         case "":
             status = .Pending
